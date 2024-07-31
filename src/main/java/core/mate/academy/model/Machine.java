@@ -8,7 +8,7 @@ public abstract class Machine implements Workable {
         return name;
     }
 
-    public void setName(String name) {
+    protected void setName(String name) {
         this.name = name;
     }
 
@@ -16,7 +16,8 @@ public abstract class Machine implements Workable {
         return color;
     }
 
-    public void setColor(String color) {
+    protected void setColor(String color) {
         this.color = color;
     }
+
 }
