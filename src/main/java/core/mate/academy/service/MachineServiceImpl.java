@@ -4,6 +4,7 @@ import core.mate.academy.model.Bulldozer;
 import core.mate.academy.model.Excavator;
 import core.mate.academy.model.Machine;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MachineServiceImpl implements MachineService<Machine> {
@@ -32,7 +33,7 @@ public class MachineServiceImpl implements MachineService<Machine> {
         } else {
             machineList.addAll(truckProducer.get());
         }
-        return machineList;
+        return machineList.isEmpty() ? Collections.emptyList() : machineList;
     }
 
     @Override

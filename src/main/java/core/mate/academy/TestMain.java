@@ -42,10 +42,10 @@ public class TestMain {
         List<Machine> bulldozerMachine = machineService.getAll(Bulldozer.class);
         System.out.println(bulldozerMachine);
 
-        List<Machine> truckMachine = machineService.getAll(Truck.class);
-        System.out.println(truckMachine);
-
         List<Machine> excavatorMachine = machineService.getAll(Excavator.class);
         System.out.println(excavatorMachine);
+
+        List<Machine> truckMachine = machineService.getAll(Truck.class);
+        System.out.println(truckMachine);
     }
 }
