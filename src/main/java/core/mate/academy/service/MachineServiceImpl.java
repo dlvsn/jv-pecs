@@ -3,24 +3,16 @@ package core.mate.academy.service;
 import core.mate.academy.model.Bulldozer;
 import core.mate.academy.model.Excavator;
 import core.mate.academy.model.Machine;
+import core.mate.academy.model.Truck;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class MachineServiceImpl implements MachineService<Machine> {
-    private BulldozerProducerImpl bulldozerProducer;
-    private ExcavatorProducerImpl excavatorProducer;
-    private TruckProducerImpl truckProducer;
+    private BulldozerProducerImpl bulldozerProducer = new BulldozerProducerImpl();
+    private ExcavatorProducerImpl excavatorProducer = new ExcavatorProducerImpl();
+    private TruckProducerImpl truckProducer = new TruckProducerImpl();
 
     public MachineServiceImpl() {
-    }
-
-    public MachineServiceImpl(BulldozerProducerImpl bulldozerProducer,
-                              ExcavatorProducerImpl excavatorProducer,
-                              TruckProducerImpl truckProducer) {
-        this.bulldozerProducer = bulldozerProducer;
-        this.excavatorProducer = excavatorProducer;
-        this.truckProducer = truckProducer;
     }
 
     @Override
@@ -28,12 +20,15 @@ public class MachineServiceImpl implements MachineService<Machine> {
         List<Machine> machineList = new ArrayList<>();
         if (type.equals(Bulldozer.class)) {
             machineList.addAll(bulldozerProducer.get());
-        } else if (type.equals(Excavator.class)) {
+        }
+        if (type.equals(Excavator.class)) {
             machineList.addAll(excavatorProducer.get());
-        } else {
+        }
+        if (type.equals(Truck.class)) {
             machineList.addAll(truckProducer.get());
         }
-        return machineList.isEmpty() ? Collections.emptyList() : machineList;
+
+        return machineList;
     }
 
     @Override
